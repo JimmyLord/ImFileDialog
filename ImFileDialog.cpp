@@ -12,6 +12,9 @@
 
 #include "stb_image.h"
 
+// Removed entire file if not WIN32, needs testing on other platforms.
+#ifdef WIN32
+
 #ifdef _WIN32
 #define WIN32_LEAN_AND_MEAN
 #define NOMINMAX
@@ -1491,3 +1494,5 @@ const char* ifd::GetDefaultFileIcon()
 {
 	return (const char*)&file_icon[0];
 }
+
+#endif // WIN32
