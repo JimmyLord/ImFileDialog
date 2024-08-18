@@ -14,12 +14,25 @@
 #define IFD_DIALOG_SAVE			2
 
 namespace ifd {
+	extern class FileDialog* g_pFileDialogInstance;
+
 	class FileDialog {
 	public:
+		static void CreateInstance()
+		{
+			//assert(g_pFileDialogInstance == nullptr);
+			g_pFileDialogInstance = new FileDialog();
+		}
 		static inline FileDialog& Instance()
 		{
-			static FileDialog ret;
-			return ret;
+			//static FileDialog ret;
+			//assert(g_pFileDialogInstance != nullptr);
+			return *g_pFileDialogInstance;
+		}
+		static void DestroyGlobalFileDialog()
+		{
+			delete g_pFileDialogInstance;
+			g_pFileDialogInstance = nullptr;
 		}
 
 		FileDialog();

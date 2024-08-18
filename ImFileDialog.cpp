@@ -31,6 +31,8 @@
 #define PI 3.141592f
 
 namespace ifd {
+	FileDialog* g_pFileDialogInstance = nullptr;
+
 	static const char* GetDefaultFolderIcon();
 	static const char* GetDefaultFileIcon();
 
